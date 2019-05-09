@@ -71,3 +71,40 @@ Otra forma de hacer que todas tus URL’s que no existan sean redirigidas a tu c
 `import { Redirect, Route } from "react-router-dom";`
 
 Como podemos observar llamamos a nuestro componente 404 y luego utilizamos Redirect, el cual es un componente de React Router para hacer redirecciones; en este caso hacemos que todas las URL’s que no correspondan a alguna que hayamos declarado, sean redirigidas a MiComponente404.
+
+## Ciclo de Vida de los Componentes
+
+Cuando React renderiza los componentes decimos que entran en escena, cuando su estado cambia o recibe unos props diferentes se actualizan y cuando cambiamos de página se dice que se desmontan.
+
+### Montaje:
+
+Representa el momento donde se inserta el código del componente en el DOM.
+Se llaman tres métodos: constructor, render, componentDidMount.
+
+### Actualización:
+
+Ocurre cuando los props o el estado del componente cambian.
+Se llaman dos métodos: render, componentDidUpdate.
+
+### Desmontaje:
+
+Nos da la oportunidad de hacer limpieza de nuestro componente.
+Se llama un método: componentWillUnmount. Es importante que si se esta haciendo una petición asíncrona se cancele ese llamado en caso de que se desmonte el componente.
+
+Ejemplo
+
+```javascript
+componentDidMount(){
+  this.mounted = true;
+
+  this.props.fetchData().then((response) => {
+    if(this.mounted) {
+      this.setState({ data: response })
+    }
+  })
+}
+
+componentWillUnmount(){
+  this.mounted = false;
+}
+```
