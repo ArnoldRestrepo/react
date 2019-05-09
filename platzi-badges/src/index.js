@@ -10,9 +10,9 @@ import ReactDOM from "react-dom"; // Analogía de Append Child
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css";
 
-import NewBadge from "./pages/NewBadge.js";
+import BadgeNew from "./pages/BadgeNew.js";
 
 const container = document.getElementById("app");
 
 // ReactDOM.render(__qué__, __dónde__);
-ReactDOM.render(<NewBadge />, container);
+ReactDOM.render(<BadgeNew />, container);
