@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar.js";
 import Badge from "../components/Badge.js";
 import BadgeForm from "../components/BadgeForm.js";
 import header from "../img/badge-header.svg";
@@ -13,7 +12,7 @@ class BadgeNew extends React.Component {
       lastName: "Last Name",
       email: "Email",
       jobTitle: "Designer",
-      twitter: "@name"
+      twitter: "name"
     }
   };
 
@@ -28,15 +27,11 @@ class BadgeNew extends React.Component {
 
   render() {
     return (
-      <div className="Wrapper">
-        <header>
-          {/* Navbar */}
-          <Navbar />
-          {/* Hero */}
-          <section className="BadgeNew__hero">
-            <img src={header} alt="Logo" className="" />
-          </section>
-        </header>
+      <React.Fragment>
+        {/* Hero */}
+        <section className="BadgeNew__hero">
+          <img src={header} alt="Logo" className="" />
+        </section>
         {/* Badge */}
         <div className="container">
           <div className="row">
@@ -57,7 +52,7 @@ class BadgeNew extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
