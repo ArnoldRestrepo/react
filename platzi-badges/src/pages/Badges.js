@@ -1,16 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import './styles/Badges.css';
-import confLogo from '../img/badge-header.svg';
-import BadgesList from '../components/BadgeList';
-import api from '../api';
+import "./styles/Badges.css";
+import confLogo from "../img/badge-header.svg";
+import BadgesList from "../components/BadgeList";
+import PageLoading from "../components/PageLoading";
+import PageError from "../components/PageError";
+import api from "../api";
 
 class Badges extends React.Component {
   state = {
     loading: true,
     error: null,
-    data: undefined,
+    data: undefined
   };
 
   componentDidMount() {
@@ -30,11 +32,11 @@ class Badges extends React.Component {
 
   render() {
     if (this.state.loading === true) {
-      return 'Loading...';
+      return <PageLoading />;
     }
 
     if (this.state.error) {
-      return `Error: ${this.state.error.message}`;
+      return <PageError error={this.state.error} />;
     }
 
     return (
