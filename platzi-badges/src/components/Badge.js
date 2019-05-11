@@ -5,7 +5,7 @@ import Gravatar from "./Gravatar"
 
 class Badge extends React.Component {
   render() {
-    const { firstName, lastName, avatarURL, jobTitle, twitter } = this.props;
+    const { firstName, lastName, jobTitle, twitter } = this.props;
     return (
       <section className="badge">
         <header className="badge_header">
