@@ -1,12 +1,6 @@
 import React from "react";
 
 class BadgeForm extends React.Component {
-  handleClick = e => {
-    console.log("Functionality");
-  };
-
-  
-
   render() {
     return (
       <section>

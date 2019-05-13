@@ -9,11 +9,14 @@ import PageError from "../components/PageError";
 import api from "../api";
 
 class Badges extends React.Component {
-  state = {
-    loading: true,
-    error: null,
-    data: undefined
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      error: null,
+      data: undefined
+    };
+  }
 
   componentDidMount() {
     this.fetchData();
@@ -21,8 +24,8 @@ class Badges extends React.Component {
     this.intervalID = setInterval(this.fetchData, 5000);
   }
 
-  componentWillUnmount(){
-    clearInterval(this.intervalID)
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   fetchData = async () => {
@@ -68,7 +71,7 @@ class Badges extends React.Component {
 
           <BadgesList badges={this.state.data} />
         </div>
-        {this.state.loading && <PageLoading/>}
+        {this.state.loading && <PageLoading />}
       </React.Fragment>
     );
   }

@@ -3,22 +3,25 @@ import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
 import PageLoading from "../components/PageLoading";
 import header from "../img/platziconf-logo.svg";
-import api from '../api';
+import api from "../api";
 
 import "./styles/BadgeNew.css";
 
 class BadgeNew extends React.Component {
-  state = {
-    loading: false,
-    error: null,
-    form: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      jobTitle: "",
-      twitter: ""
-    }
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+      error: null,
+      form: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        jobTitle: "",
+        twitter: ""
+      }
+    };
+  }
 
   handleChange = e => {
     this.setState({
@@ -30,26 +33,30 @@ class BadgeNew extends React.Component {
   };
 
   handleSubmit = async e => {
-    e.preventDefault()
-    this.setState({loading: true, error: null})
+    e.preventDefault();
+    this.setState({ loading: true, error: null });
     try {
-      await api.badges.create(this.state.form)
-      this.setState({loading: false})
-      this.props.history.push("/badges")
+      await api.badges.create(this.state.form);
+      this.setState({ loading: false });
+      this.props.history.push("/badges");
     } catch (error) {
-      this.setState({loading: false, error: error})
+      this.setState({ loading: false, error: error });
     }
-  }
+  };
 
   render() {
-    if(this.state.loading){
+    if (this.state.loading) {
       return <PageLoading />;
     }
     return (
       <React.Fragment>
         {/* Hero */}
         <section className="BadgeNew__hero">
-          <img className="BadgeNew__hero-image img-fluid" src={header} alt="Logo" />
+          <img
+            className="BadgeNew__hero-image img-fluid"
+            src={header}
+            alt="Logo"
+          />
         </section>
         {/* Badge */}
         <div className="container">
@@ -65,7 +72,7 @@ class BadgeNew extends React.Component {
               />
             </div>
             <div className="col-md-6">
-            <h1>New Attendant</h1>
+              <h1>New Attendant</h1>
               <BadgeForm
                 onChange={this.handleChange}
                 formValues={this.state.form}
