@@ -9,14 +9,11 @@ import PageError from "../components/PageError";
 import api from "../api";
 
 class Badges extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      error: null,
-      data: undefined
-    };
-  }
+  state = {
+    loading: true,
+    error: null,
+    data: undefined
+  };
 
   componentDidMount() {
     this.fetchData();

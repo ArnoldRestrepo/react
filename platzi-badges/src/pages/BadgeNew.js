@@ -8,20 +8,17 @@ import api from "../api";
 import "./styles/BadgeNew.css";
 
 class BadgeNew extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      error: null,
-      form: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        jobTitle: "",
-        twitter: ""
-      }
-    };
-  }
+  state = {
+    loading: false,
+    error: null,
+    form: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      jobTitle: "",
+      twitter: ""
+    }
+  };
 
   handleChange = e => {
     this.setState({
